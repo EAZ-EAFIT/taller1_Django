@@ -11,13 +11,16 @@ class Command(BaseCommand):
 
         with open(json_file_path, 'r', encoding='utf-8') as f:
             json_movies = json.load(f)
-        
+
         for i in range(100):
             movie = json_movies[i]
 
             exist = Movie.objects.filter(title=movie['title']).first()
+            if 'plot' not in movie or not movie['plot']:
+                movie['plot'] = "No description"
             if not exist:
                 Movie.objects.create(title = movie['title'], 
-                                     image = os.path.join('media/movie/images/default.jpg'),
+                                     image = os.path.abspath('media/movie/images/default.jpg'),
                                      genre = movie['genre'],
-                                     year = movie['year'])
+                                     year = movie['year'],
+                                     description = movie['plot'])

@@ -12,7 +12,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'home' %}">
         {% load static %}
-        <img src="{% static 'images/movie.jpg' %}" alt="logo" width="30" class="d-inline-block align-text-top"/>
+        <img src="{% static 'images/movie.jpg' %}" alt="logo" width="40" class="d-inline-block align-text-top"/>
         Movies
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'news' %}">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'statistics' %}">Statistics</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Login</a>

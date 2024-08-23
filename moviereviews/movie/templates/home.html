@@ -15,9 +15,9 @@
         {% if searchTerm %}
             <p>Searching for {{ searchTerm }}</p>
         {% endif %}
-
         <div class="py-3"></div>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="row row-cols-1 row-cols-md-4 g-4">
             {% for movie in movies %}
                 <div v-for="movie in movies" class="col">
 
@@ -31,12 +31,23 @@
                                 <a class="btn btn-primary" href="{{ movie.url }}">Movie Link</a>
                             {% endif %}
                         </div>
-                      </div>
+                    </div>
+
                 </div>
             {% endfor %}
         </div>
+
         <br/>
+        <br/>
+        <br/>
+        <h2>Join our mailing list:</h2>
+        <form action="{% url 'signup' %}">
+            <div class="mb-3">
+                <label for="email" class="form-label">Enter your email:</label>
+                <input type="email" class="form-control" name="email"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 {% endblock content %}
